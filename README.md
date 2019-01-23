@@ -5,8 +5,8 @@ Created in Atom
 ## Authors
 
 - [Tony Zhou](http://link-to-website-here/)
-- [Alex Page](http://link-to-website-here/)
 - [Darren Yao](http://link-to-website-here/)
+- [Alex Page](http://link-to-website-here/)
 
 ## Features
 
