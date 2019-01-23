@@ -1,12 +1,12 @@
 # APP NAME HERE
 
-APP DESCRIPTION HERE
+Created in Atom
 
 ## Authors
 
-- [STUDENT NAME HERE](http://link-to-website-here/)
-- [STUDENT NAME HERE](http://link-to-website-here/)
-- [STUDENT NAME HERE](http://link-to-website-here/)
+- [Tony Zhou](http://link-to-website-here/)
+- [Alex Page](http://link-to-website-here/)
+- [Darren Yao](http://link-to-website-here/)
 
 ## Features
 
