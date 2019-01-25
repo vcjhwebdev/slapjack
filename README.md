@@ -4,9 +4,9 @@ Created in Atom
 
 ## Authors
 
-- [Tony Zhou](http://link-to-website-here/)
-- [Darren Yao](http://link-to-website-here/)
-- [Alex Page](http://link-to-website-here/)
+- [Tony Zhou](http://tyzhou05.github.io/)
+- [Darren Yao](http://lowkeymochi.githu.io/)
+- [Alex Page](http://alexthegreat2006.github.io/)
 
 ## Features
 
