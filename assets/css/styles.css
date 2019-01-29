@@ -3,9 +3,13 @@
 }
 
 body {
-  font-family:Ariel;
+  font-family: fantasy;
 }
 
 header {
   text-align: center;
+}
+.deck,
+.play {
+  cursor: pointer;
 }
