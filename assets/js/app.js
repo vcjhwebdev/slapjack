@@ -41,3 +41,8 @@ var computerArray = []
     computerArray.push(cardsArr[i])
   }
 console.log(computerArray);
+
+if (cardInPlay = ["club_jack, diamond_jack, heart_jack, spade_jack"]) {
+} else {
+  continue;
+}
