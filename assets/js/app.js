@@ -44,4 +44,3 @@ for (i=1; i<=10; i++) {
   cardsArr.push("spade_" + i);
 }
 deckOfCards = shuffle(cardsArr);
-//console.log(cardsArr);
