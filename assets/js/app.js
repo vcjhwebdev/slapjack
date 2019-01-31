@@ -3,9 +3,6 @@ var deck = document.querySelector('.deck');
 var cardInPlay = document.querySelector('.play');
 
 deck.addEventListener('click', function(e) {
-  // e.target <-- thing you clicked on
-  // e.target.className <-- class of the thing
-  // e.target.style.display = "none" <-- hides the thing
   var nextCard = deckOfCards.pop();
   if(nextCard !== undefined) {
     cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
@@ -39,3 +36,8 @@ for (i=1; i<=10; i++) {
   cardsArr.push("spade_" + i);
 }
 deckOfCards = shuffle(cardsArr);
+var computerArray = []
+  for (i=0; i<26; i++) {
+    computerArray.push(cardsArr[i])
+  }
+console.log(computerArray);
