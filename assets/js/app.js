@@ -2,14 +2,13 @@ var deckOfCards = [];
 var deck = document.querySelector('.deck');
 var cardInPlay = document.querySelector('.play');
 
-
 deck.addEventListener('click', function(e) {
   // e.target <-- thing you clicked on
   // e.target.className <-- class of the thing
   // e.target.style.display = "none" <-- hides the thing
   var nextCard = deckOfCards.pop();
   if(nextCard !== undefined) {
-    cardInPlay.src = "img/cards/1x/" + nextCard + ".png";
+    cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
   }
 });
 
@@ -18,17 +17,13 @@ cardInPlay.addEventListener('click', function(e) {
   alert('You clicked on a card in play. It\'s file is ' + src);
 });
 
-
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
-  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
 
-    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
-    // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
