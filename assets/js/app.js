@@ -36,13 +36,9 @@ for (i=1; i<=10; i++) {
   cardsArr.push("spade_" + i);
 }
 deckOfCards = shuffle(cardsArr);
+
 var computerArray = []
   for (i=0; i<26; i++) {
     computerArray.push(cardsArr[i])
   }
 console.log(computerArray);
-
-if (cardInPlay = ["club_jack, diamond_jack, heart_jack, spade_jack"]) {
-} else {
-  continue;
-}
