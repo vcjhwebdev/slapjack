@@ -3,13 +3,16 @@
 }
 
 body {
-  font-family: fantasy;
+  font-family:monospace;
 }
 
 header {
   text-align: center;
 }
-.deck,
-.play {
-  cursor: pointer;
+
+.deck {
+  cursor:pointer;
 }
+
+.play {
+  cursor:pointer;
