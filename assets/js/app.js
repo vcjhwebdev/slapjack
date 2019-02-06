@@ -31,13 +31,11 @@ function shuffle() {
       for (i=0; i<26; i++) {
         computerHand.push(deck.pop());
       }
-    //console.log(computerArray);
 
     var playerArray = []
       for (i=0; i<26; i++) {
         playerHand.push(deck.pop());
       }
-      //console.log(playerArray);
   }
 
   var currentIndex = allPossibleCards.length, temporaryValue, randomIndex;
