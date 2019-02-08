@@ -52,4 +52,24 @@ function shuffle() {
   deal(allPossibleCards);
 }
 
+function game() {
+
+    // loop
+
+    // add click event listener so player can begin
+
+    // remove event listener after player has played
+
+    // delay computer's turn
+    setTimeout(function() {
+      // computer plays
+      var nextCard = computerHand.pop();
+      if(nextCard !== undefined) {
+        cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
+      }
+    }, 1000);
+}
+
 shuffle();
+
+game();
