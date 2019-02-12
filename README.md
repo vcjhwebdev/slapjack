@@ -1,4 +1,4 @@
-# APP NAME HERE
+# Slapjack
 
 Created in Atom
 
@@ -11,7 +11,7 @@ Created in Atom
 
 ## Features
 
-- APP FEATURES HERE
+- A simple game of slapjack involving a player and a computer
 
 ### Changelog
 

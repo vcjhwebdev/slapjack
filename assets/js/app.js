@@ -55,6 +55,7 @@ function shuffle() {
 function game() {
 
     // loop
+    for 
 
     // add click event listener so player can begin
 
