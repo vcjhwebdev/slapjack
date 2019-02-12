@@ -2,13 +2,30 @@ var deck = document.querySelector('.deck');
 var cardInPlay = document.querySelector('.play');
 var computerHand = [];
 var playerHand = [];
+var cardsInPlay = [];
 
-deck.addEventListener('click', function(e) {
+function playerPlay() {
   var nextCard = playerHand.pop();
+  cardsInPlay.push(nextCard);
   if(nextCard !== undefined) {
     cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
   }
-});
+  // remove event listener after player has played
+  deck.removeEventListener('click', playerPlay);
+  // computer's turn
+  computerPlay();
+}
+
+function computerPlay() {
+  setTimeout(function() {
+    // computer plays
+    var nextCard = computerHand.pop();
+    cardsInPlay.push(nextCard);
+    if(nextCard !== undefined) {
+      cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
+    }
+  }, 1000);
+}
 
 cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
@@ -53,24 +70,15 @@ function shuffle() {
 }
 
 function game() {
+  shuffle();
 
-    // loop
-    for 
+  // loop
+  // while(playerHand.length < 52 && computerHand.length < 52) {
 
     // add click event listener so player can begin
+    deck.addEventListener('click', playerPlay);
+  // }
 
-    // remove event listener after player has played
-
-    // delay computer's turn
-    setTimeout(function() {
-      // computer plays
-      var nextCard = computerHand.pop();
-      if(nextCard !== undefined) {
-        cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
-      }
-    }, 1000);
 }
-
-shuffle();
 
 game();
