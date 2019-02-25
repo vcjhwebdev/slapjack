@@ -1,6 +1,6 @@
 # Slapjack
 
-Created in Atom
+Created in Atom and uses Appscope to operate
 
 ## Authors
 
@@ -11,7 +11,7 @@ Created in Atom
 
 ## Features
 
-- A simple game of slapjack involving a player and a computer
+- A simple game of slapjack involving a player and a computer fighting over a deck of cards
 
 ### Changelog
 
