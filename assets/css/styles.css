@@ -1,12 +1,14 @@
 * {
   box-sizing: border-box;
-
+  border: 2px;
+  border-radius: 25px;
 }
 
 
 }
 body {
   font-family:monospace;
+    border-radius: 500px;
 }
 
 header,
@@ -26,8 +28,6 @@ header,
 
 
 
-
-
 @media (min-width: 768px) {
 
 }
@@ -35,3 +35,4 @@ header,
 @media (min-width: 1024px) {
 
 }
+im already tracer
