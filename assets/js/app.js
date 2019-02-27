@@ -73,10 +73,11 @@ function game() {
   shuffle();
 
   // loop
-   while(playerHand.length < 52 && computerHand.length < 52) {
+   //while(playerHand.length < 52 && computerHand.length < 52) {
     // add click event listener so player can begin
     deck.addEventListener('click', playerPlay);
     deck.addEventListener('playerPlay', computerPlay);
+    
    }
 
 }
