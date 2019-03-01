@@ -4,6 +4,7 @@ var computerHand = [];
 var playerHand = [];
 var cardsInPlay = [];
 
+    // player plays cards
 function playerPlay() {
   var nextCard = playerHand.pop();
   cardsInPlay.push(nextCard);
@@ -15,7 +16,7 @@ function playerPlay() {
   // computer's turn
   computerPlay();
 }
-//computer plays cards
+    // computer plays cards
 function computerPlay() {
   setTimeout(function() {
     // computer plays
@@ -29,7 +30,6 @@ function computerPlay() {
 
 cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
-  alert('You clicked on a card in play. It\'s file is ' + src);
 });
 
 // shuffle and deal
@@ -71,15 +71,11 @@ function shuffle() {
 
 function game() {
   shuffle();
-
   // loop
-   //while(playerHand.length < 52 && computerHand.length < 52) {
-    // add click event listener so player can begin
-    deck.addEventListener('click', playerPlay);
-    deck.addEventListener('playerPlay', computerPlay);
-    
-   }
-
+  // while(playerHand.length < 52 && computerHand.length < 52) {
+  // add click event listener so player can begin
+  deck.addEventListener('click', playerPlay);
+  break;
 }
 
 game();
