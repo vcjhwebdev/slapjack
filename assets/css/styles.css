@@ -1,12 +1,26 @@
 * {
   box-sizing: border-box;
-
+  border: 50px;
+  border-radius: 25px;
 }
 
-
+#rules {
+  background-color: #F1F1F1;
 }
+
+#h1 {
+  font-size: 28px;
+  box-sizing: border-box;
+  border: 50px;
+  border-radius: 25px;
+}
+
+#h2 {
+  text-align: center;
+}
+
 body {
-  font-family:monospace;
+  font-family: monospace;
 }
 
 header,
@@ -15,23 +29,33 @@ header,
 }
 
 .deck {
-  cursor:pointer;
-
+  cursor: pointer;
 }
 
 .play {
-  cursor:pointer;
-
+  cursor: pointer;
 }
+/* =================================
+DEFAULT STYLES (NO MEDIA QUERY)
+Device width:
+    320px -->   <-- 768px
+==================================== */
 
-
-
-
-
+/* =================================
+Device width:
+    <-- 320px
+==================================== */
+@media (max-width: 320px) {
+}
+/* =================================
+Device width:
+    768px -->   <-- 1024px
+==================================== */
 @media (min-width: 768px) {
-
 }
-
+/* =================================
+Device width:
+    1024px -->
+==================================== */
 @media (min-width: 1024px) {
-
 }
