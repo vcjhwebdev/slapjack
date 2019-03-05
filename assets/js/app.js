@@ -6,13 +6,18 @@ var cardsInPlay = [];
 
     // player plays cards
 function playerPlay() {
-  var nextCard = playerHand.pop();
-  cardsInPlay.push(nextCard);
-  if(nextCard !== undefined) {
-    cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
-  }
+  setTimeout(function() {
+    var nextCard = playerHand.pop();
+    cardsInPlay.push(nextCard);
+      if(nextCard !== undefined) {
+          cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
+      }
   // remove event listener after player has played
   deck.removeEventListener('click', playerPlay);
+    for (playerHand = 0; playerHand < 52; playerHand++) {
+    //playerHand += 1;
+      }
+    }, 1000);
   // computer's turn
   computerPlay();
 }
@@ -26,6 +31,9 @@ function computerPlay() {
       cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
     }
   }, 1000);
+  for (computerHand = 0; computerHand < 52; computerHand++) {
+    //computerHand += 1
+  }
 }
 
 cardInPlay.addEventListener('click', function(e) {
@@ -72,9 +80,13 @@ function shuffle() {
 function game() {
   shuffle();
   // loop
-  // while(playerHand.length < 52 && computerHand.length < 52) {
+  while(playerHand.length < 52 && computerHand.length < 52) {
   // add click event listener so player can begin
   deck.addEventListener('click', playerPlay);
-}
+
+    playerPlay();
+    break;
+      }
+  }
 
 game();
