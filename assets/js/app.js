@@ -44,14 +44,8 @@ function computerPlay() {
 
 cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
-  // testing purposes, remove later
-  console.log(src);
-  //
-  if (src.includes("_jack")) {
-
-    else {
-      continue game();
-    }
+  if (src.includes("_jack") && !gameHasEnded()) {
+    console.log('jack found');
   }
 });
 
