@@ -4,21 +4,22 @@ var computerHand = [];
 var playerHand = [];
 var cardsInPlay = [];
 
+function gameHasEnded() {
+  return playerHand.length == 52 || computerHand.length == 52;
+}
+
     // player plays cards
 function playerPlay() {
-  setTimeout(function() {
-    var nextCard = playerHand.pop();
-    cardsInPlay.push(nextCard);
-      if(nextCard !== undefined) {
-          cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
-      }
+  var nextCard = playerHand.pop();
+  cardsInPlay.push(nextCard);
+  if(nextCard !== undefined) {
+      cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
+  }
   // remove event listener after player has played
   deck.removeEventListener('click', playerPlay);
-    for (playerHand = 0; playerHand < 52; playerHand++) {
-    //playerHand += 1;
-      }
-    }, 1000);
-  // computer's turn
+  // testing purposes, remove later
+  console.log(playerHand);
+  //
   computerPlay();
 }
     // computer plays cards
@@ -30,14 +31,28 @@ function computerPlay() {
     if(nextCard !== undefined) {
       cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
     }
+    // testing purposes, remove later
+    console.log(computerHand);
+
+    console.log(cardsInPlay);
+    //
+    if(!gameHasEnded()) {
+      deck.addEventListener('click', playerPlay);
+    }
   }, 1000);
-  for (computerHand = 0; computerHand < 52; computerHand++) {
-    //computerHand += 1
-  }
 }
 
 cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
+  // testing purposes, remove later
+  console.log(src);
+  //
+  if (src.includes("_jack")) {
+
+    else {
+      continue game();
+    }
+  }
 });
 
 // shuffle and deal
@@ -80,13 +95,9 @@ function shuffle() {
 function game() {
   shuffle();
   // loop
-  while(playerHand.length < 52 && computerHand.length < 52) {
   // add click event listener so player can begin
   deck.addEventListener('click', playerPlay);
 
-    playerPlay();
-    break;
-      }
-  }
+} // game end
 
 game();
