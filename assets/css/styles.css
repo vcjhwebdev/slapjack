@@ -8,6 +8,8 @@
   background-color: #F1F1F1;
 }
 
+
+
 #h1 {
   font-size: 28px;
 }
@@ -19,7 +21,6 @@
 body {
   font-family: monospace;
 }
-
 header,
 #play-area {
     text-align: center;
