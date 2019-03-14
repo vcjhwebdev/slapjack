@@ -1,4 +1,4 @@
-# APP NAME HERE
+# Slapjack
 
 Created in Atom
 
@@ -10,7 +10,7 @@ Created in Atom
 
 ## Features
 
-- APP FEATURES HERE
+- Fun card game where you slap jacks faster than a robot
 
 ### Changelog
 
