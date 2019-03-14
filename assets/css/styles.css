@@ -9,13 +9,14 @@
 }
 
 
-
 #h1 {
   font-size: 28px;
+  background-color: #FCFCFC;
 }
 
 #h2 {
   text-align: center;
+    text-decoration: underline;
 }
 
 body {
