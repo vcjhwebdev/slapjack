@@ -42,13 +42,20 @@ function computerPlay() {
   }, 1000);
 }
 
+function slap() {
+
+}
+
 cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
     if (src.includes("_jack") && !gameHasEnded()) {
+      // testing purposes, remove later
       console.log("jack found");
+      //
+      play.addEventListener('click', function(slap))
+      }
     }
-  }
-});
+  );
 
 // shuffle and deal
 function shuffle() {
