@@ -10,13 +10,17 @@
 
 
 #h1 {
+  height: 64px;
+  width: 500px;
+  background-color: white;
   font-size: 28px;
-  background-color: #FCFCFC;
+  /* background-color: #FCFCFC; */
+  text-align: center;
 }
 
 #h2 {
   text-align: center;
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 body {
