@@ -43,7 +43,21 @@ function computerPlay() {
 }
 
 function slap() {
+  deck.removeEventListener('click', playerPlay);
+  play.addEventListener('click', playerPlay);
+  if (play.EventListener == 'click') {
+    // var playerHand = playerHand + cardsInPlay
+    // playerHand = playerHand.concat(cardsInPlay);
+    // cardsInPlay = [];
+    deck.addEventListener('click', playerPlay);
+    play.removeEventListener('click', playerPlay);
 
+  } else {
+    var computerHand = computerHand + cardsInPlay
+    deck.addEventListener('click', playerPlay);
+    play.removeEventListener('click', playerPlay);
+
+  }
 }
 
 cardInPlay.addEventListener('click', function(e) {
@@ -52,7 +66,9 @@ cardInPlay.addEventListener('click', function(e) {
       // testing purposes, remove later
       console.log("jack found");
       //
-      play.addEventListener('click', function(slap))
+      slap();
+    } else {
+        // continue game
       }
     }
   );
