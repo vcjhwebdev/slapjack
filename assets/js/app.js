@@ -46,15 +46,12 @@ function computerPlay() {
 
 // after random delay, computer will attempt to slap the jack
 function jackPlaced() {
-  var delay = Math.floor((Math.random() * 800) + 400);
+  // 600ms to 1600ms
+  var delay = Math.floor((Math.random() * 1000) + 600);
   computerJackDelay = setTimeout(function() {
-    console.log('computer slapped');
-    // console.log(computerHand);
-    // console.log(cardsInPlay);
+    console.log('computer got it!');
     computerHand = computerHand.concat(cardsInPlay);
     cardsInPlay = [];
-    // console.log(computerHand);
-    // console.log(cardsInPlay);
     cardInPlay.src = "img/cards/2x/back-black.png";
   }, delay);
 }
@@ -63,8 +60,9 @@ cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
   if (src.includes("_jack") && !gameHasEnded()) {
     // testing purposes, remove later
-    console.log("jack slapped");
+    console.log("player got it!");
     clearInterval(computerJackDelay);
+    playerHand = playerHand.concat(cardsInPlay);
     cardsInPlay = [];
     cardInPlay.src = "img/cards/2x/back-black.png";
   }
