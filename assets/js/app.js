@@ -3,6 +3,7 @@ var cardInPlay = document.querySelector('.play');
 var computerHand = [];
 var playerHand = [];
 var cardsInPlay = [];
+var computerJackDelay;
 
 function gameHasEnded() {
   return playerHand.length == 52 || computerHand.length == 52;
@@ -17,10 +18,12 @@ function playerPlay() {
   }
   // remove event listener after player has played
   deck.removeEventListener('click', playerPlay);
-  // testing purposes, remove later
-  console.log(playerHand);
-  //
-  computerPlay();
+  // computer's turn
+  if (!nextCard.includes("_jack")) {
+    computerPlay();
+  } else {
+    jackPlaced();
+  }
 }
     // computer plays cards
 function computerPlay() {
@@ -31,47 +34,57 @@ function computerPlay() {
     if(nextCard !== undefined) {
       cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
     }
-    // testing purposes, remove later
-    console.log(computerHand);
+    if (nextCard.includes("_jack")) {
+      jackPlaced();
+    }
 
-    console.log(cardsInPlay);
-    //
     if(!gameHasEnded()) {
       deck.addEventListener('click', playerPlay);
     }
   }, 1000);
 }
 
-function slap() {
-  deck.removeEventListener('click', playerPlay);
-  play.addEventListener('click', playerPlay);
-  if (play.EventListener == 'click') {
-    // var playerHand = playerHand + cardsInPlay
-    // playerHand = playerHand.concat(cardsInPlay);
-    // cardsInPlay = [];
-    deck.addEventListener('click', playerPlay);
-    play.removeEventListener('click', playerPlay);
-
-  } else {
-    var computerHand = computerHand + cardsInPlay
-    deck.addEventListener('click', playerPlay);
-    play.removeEventListener('click', playerPlay);
-
-  }
+// after random delay, computer will attempt to slap the jack
+// setTimeout
+// clearInterval
+function jackPlaced() {
+  var delay = Math.floor((Math.random() * 800) + 400);
+  computerJackDelay = setTimeout(function() {
+    console.log('computer slapped');
+    console.log(computerHand);
+    console.log(cardsInPlay);
+    computerHand = computerHand.concat(cardsInPlay);
+    cardsInPlay = [];
+    console.log(computerHand);
+    console.log(cardsInPlay);
+  }, delay);
 }
+// function slap() {
+//   deck.removeEventListener('click', playerPlay);
+//   play.addEventListener('click', playerPlay);
+//   if (play.EventListener == 'click') {
+//     // var playerHand = playerHand + cardsInPlay
+//     // playerHand = playerHand.concat(cardsInPlay);
+//     // cardsInPlay = [];
+//     deck.addEventListener('click', playerPlay);
+//     play.removeEventListener('click', playerPlay);
+//
+//   } else {
+//     var computerHand = computerHand + cardsInPlay
+//     deck.addEventListener('click', playerPlay);
+//     play.removeEventListener('click', playerPlay);
+//
+//   }
+// }
 
 cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
-    if (src.includes("_jack") && !gameHasEnded()) {
-      // testing purposes, remove later
-      console.log("jack found");
-      //
-      slap();
-    } else {
-        // continue game
-      }
-    }
-  );
+  if (src.includes("_jack") && !gameHasEnded()) {
+    // testing purposes, remove later
+    console.log("jack found");
+    clearInterval(computerJackDelay);
+  }
+});
 
 // shuffle and deal
 function shuffle() {
