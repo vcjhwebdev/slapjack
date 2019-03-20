@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   border: 50px;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 #rules {
@@ -14,8 +14,8 @@
   width: 500px;
   background-color: white;
   font-size: 28px;
-  /* background-color: #FCFCFC; */
   text-align: center;
+  margin: 0 auto;
 }
 
 #h2 {
