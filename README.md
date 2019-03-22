@@ -16,5 +16,3 @@ A Progressive Web Application created in Atom using HTML, CSS, and JavaScript
 ### Changelog
 
 **Version 0.1**
-
-- CHANGES HERE
