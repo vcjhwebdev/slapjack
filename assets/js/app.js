@@ -23,6 +23,8 @@ function playerPlay() {
     computerPlay();
   } else {
     jackPlaced();
+    // create modal 3/25 - 3/39 using w3schools in html, css, and js
+    // modal will display to tell the player who won, once the player clicks off the event listener is added to the deck
   }
 }
     // computer plays cards
