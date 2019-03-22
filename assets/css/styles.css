@@ -11,7 +11,7 @@
 
 #h1 {
   height: 64px;
-  width: 500px;
+  width: 275px;
   background-color: white;
   font-size: 28px;
   text-align: center;
@@ -19,6 +19,7 @@
 }
 
 #h2 {
+  font-size: 15px;
   text-align: center;
   text-decoration: underline;
 }
