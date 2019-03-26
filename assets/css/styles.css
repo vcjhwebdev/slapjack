@@ -16,13 +16,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(255,255,255, 0.8);
+  background-color: rgba(255,255,255, 0.5);
 
 }
 
 .modal-content {
   border: 1px solid;
-  background-color: #FFF;
+  background-color: #FFFFFF;
   font-size: 1.1em;
   width: 60%;
   max-width: 800px;
@@ -35,6 +35,15 @@
   padding: 0 1em;
 }
 
+.button {
+  border: none;
+  color: black;
+  padding: 35px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  font-family: monospace;
+}
 #h1 {
   height: 64px;
   width: 275px;
