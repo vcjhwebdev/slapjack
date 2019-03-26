@@ -19,7 +19,7 @@ function placeModal(content, playerCards, computerCards) {
     <h1>${content} got the slap!</h1>
     <p>Player cards: ${playerCards}</p>
     <p>Computer cards: ${computerCards}</p>
-    <button>Continue</button>
+    <button class = "button">Continue</button>
   </div>`;
   modal.innerHTML = modalContent;
   // add event listener to close modal
