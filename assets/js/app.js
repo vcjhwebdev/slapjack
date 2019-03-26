@@ -19,7 +19,7 @@ function placeModal(content, playerCards, computerCards) {
     <h1>${content} got the slap!</h1>
     <p>Player cards: ${playerCards}</p>
     <p>Computer cards: ${computerCards}</p>
-    <button class = "button">Continue</button>
+    <button class="button">Continue</button>
   </div>`;
   modal.innerHTML = modalContent;
   // add event listener to close modal
@@ -42,11 +42,10 @@ function playerPlay() {
   deck.removeEventListener('click', playerPlay);
   // computer's turn
   if (!nextCard.includes("_jack")) {
+    // event listener here goes to computerPlay
     computerPlay();
   } else {
     jackPlaced();
-    // create modal 3/25 - 3/39 using w3schools in html, css, and js
-    // modal will display to tell the player who won, once the player clicks off the event listener is added to the deck
   }
 }
     // computer plays cards
@@ -93,6 +92,11 @@ cardInPlay.addEventListener('click', function(e) {
     placeModal("You", playerHand.length, computerHand.length);
   }
 });
+
+//end game once playerHand | | computerHand == 52
+if (gameHasEnded()) {
+
+}
 
 // shuffle and deal
 function shuffle() {
