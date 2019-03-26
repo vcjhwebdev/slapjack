@@ -9,6 +9,28 @@ function gameHasEnded() {
   return playerHand.length == 52 || computerHand.length == 52;
 }
 
+// placeModal("Computer", playerHand.length, computerHand.length)
+function placeModal(content, playerCards, computerCards) {
+  var body = document.querySelector("body");
+  var modal = document.createElement("div");
+  modal.className = "modal";
+  var modalContent = `
+  <div class="modal-content">
+    <h1>${content} got the slap!</h1>
+    <p>Player cards: ${playerCards}</p>
+    <p>Computer cards: ${computerCards}</p>
+    <button>Continue</button>
+  </div>`;
+  modal.innerHTML = modalContent;
+  // add event listener to close modal
+  var button = modal.querySelector("button");
+  button.addEventListener("click", function() {
+    body.removeChild(modal);
+  });
+  // place modal on the page
+  body.insertBefore(modal, body.children[0]);
+}
+
     // player plays cards
 function playerPlay() {
   var nextCard = playerHand.pop();
@@ -55,6 +77,7 @@ function jackPlaced() {
     computerHand = computerHand.concat(cardsInPlay);
     cardsInPlay = [];
     cardInPlay.src = "img/cards/2x/back-black.png";
+    placeModal("The computer", playerHand.length, computerHand.length);
   }, delay);
 }
 
@@ -67,6 +90,7 @@ cardInPlay.addEventListener('click', function(e) {
     playerHand = playerHand.concat(cardsInPlay);
     cardsInPlay = [];
     cardInPlay.src = "img/cards/2x/back-black.png";
+    placeModal("You", playerHand.length, computerHand.length);
   }
 });
 
