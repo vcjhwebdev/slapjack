@@ -32,7 +32,6 @@ function placeModal(content, playerCards, computerCards) {
   body.insertBefore(modal, body.children[0]);
   playerCanPlay = true;
 }
-
     // player plays cards
 function playerPlay() {
   if(playerCanPlay) {
@@ -55,6 +54,7 @@ function playerPlay() {
 }
     // computer plays cards
 function computerPlay() {
+  var delay = Math.floor((Math.random() * 1000) + 600);
   setTimeout(function() {
     // computer plays
     var nextCard = computerHand.pop();
@@ -70,13 +70,13 @@ function computerPlay() {
       // deck.addEventListener('click', playerPlay);
       playerCanPlay = true;
     }
-  }, 1000);
+  }, delay);
 }
 
 // after random delay, computer will attempt to slap the jack
 function jackPlaced() {
-  // 600ms to 1600ms
   var delay = Math.floor((Math.random() * 1000) + 600);
+  // 600ms to 1600ms
   computerJackDelay = setTimeout(function() {
     console.log('computer got it!');
     computerHand = computerHand.concat(cardsInPlay);
