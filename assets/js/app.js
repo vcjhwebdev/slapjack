@@ -4,6 +4,7 @@ var computerHand = [];
 var playerHand = [];
 var cardsInPlay = [];
 var computerJackDelay;
+var playerCanPlay = false;
 
 function gameHasEnded() {
   return playerHand.length == 52 || computerHand.length == 52;
@@ -29,23 +30,27 @@ function placeModal(content, playerCards, computerCards) {
   });
   // place modal on the page
   body.insertBefore(modal, body.children[0]);
+  playerCanPlay = true;
 }
 
     // player plays cards
 function playerPlay() {
-  var nextCard = playerHand.pop();
-  cardsInPlay.push(nextCard);
-  if(nextCard !== undefined) {
-      cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
-  }
-  // remove event listener after player has played
-  deck.removeEventListener('click', playerPlay);
-  // computer's turn
-  if (!nextCard.includes("_jack")) {
-    // event listener here goes to computerPlay
-    computerPlay();
-  } else {
-    jackPlaced();
+  if(playerCanPlay) {
+    var nextCard = playerHand.pop();
+    cardsInPlay.push(nextCard);
+    if(nextCard !== undefined) {
+        cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
+    }
+    // remove event listener after player has played
+    // deck.removeEventListener('click', playerPlay);
+    playerCanPlay = false;
+    // computer's turn
+    if (!nextCard.includes("_jack")) {
+      // event listener here goes to computerPlay
+      computerPlay();
+    } else {
+      jackPlaced();
+    }
   }
 }
     // computer plays cards
@@ -62,7 +67,8 @@ function computerPlay() {
     }
 
     if(!gameHasEnded()) {
-      deck.addEventListener('click', playerPlay);
+      // deck.addEventListener('click', playerPlay);
+      playerCanPlay = true;
     }
   }, 1000);
 }
@@ -140,7 +146,7 @@ function game() {
   // loop
   // add click event listener so player can begin
   deck.addEventListener('click', playerPlay);
-
+  playerCanPlay = true;
 } // game end
 
 game();
