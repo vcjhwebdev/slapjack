@@ -40,12 +40,9 @@ function playerPlay() {
     if(nextCard !== undefined) {
         cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
     }
-    // remove event listener after player has played
-    // deck.removeEventListener('click', playerPlay);
     playerCanPlay = false;
     // computer's turn
     if (!nextCard.includes("_jack")) {
-      // event listener here goes to computerPlay
       computerPlay();
     } else {
       jackPlaced();
@@ -67,7 +64,6 @@ function computerPlay() {
     }
 
     if(!gameHasEnded()) {
-      // deck.addEventListener('click', playerPlay);
       playerCanPlay = true;
     }
   }, delay);
@@ -75,15 +71,17 @@ function computerPlay() {
 
 // after random delay, computer will attempt to slap the jack
 function jackPlaced() {
+  //remove deck event listener so player cannot click
   var delay = Math.floor((Math.random() * 1000) + 600);
   // 600ms to 1600ms
   computerJackDelay = setTimeout(function() {
     console.log('computer got it!');
-    computerHand = computerHand.concat(cardsInPlay);
+    computerHand = cardsInPlay.concat(computerHand);
     cardsInPlay = [];
     cardInPlay.src = "img/cards/2x/back-black.png";
     placeModal("The computer", playerHand.length, computerHand.length);
   }, delay);
+  // add deck event listener so player can click again
 }
 
 cardInPlay.addEventListener('click', function(e) {
@@ -92,7 +90,7 @@ cardInPlay.addEventListener('click', function(e) {
     // testing purposes, remove later
     console.log("player got it!");
     clearInterval(computerJackDelay);
-    playerHand = playerHand.concat(cardsInPlay);
+    playerHand = cardsInPlay.concat(playerHand);
     cardsInPlay = [];
     cardInPlay.src = "img/cards/2x/back-black.png";
     placeModal("You", playerHand.length, computerHand.length);
