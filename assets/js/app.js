@@ -10,7 +10,6 @@ function gameHasEnded() {
   return playerHand.length == 52 || computerHand.length == 52;
 }
 
-// placeModal("Computer", playerHand.length, computerHand.length)
 function placeModal(content, playerCards, computerCards) {
   var body = document.querySelector("body");
   var modal = document.createElement("div");
@@ -18,7 +17,7 @@ function placeModal(content, playerCards, computerCards) {
   var modalContent = `
   <div class="modal-content">
     <h1>${content} got the slap!</h1>
-    <p>Player cards: ${playerCards}</p>
+    <p>Your cards: ${playerCards}</p>
     <p>Computer cards: ${computerCards}</p>
     <button class="button">Continue</button>
   </div>`;
@@ -32,13 +31,15 @@ function placeModal(content, playerCards, computerCards) {
   body.insertBefore(modal, body.children[0]);
   playerCanPlay = true;
 }
-    // player plays cards
+// player plays cards
 function playerPlay() {
   if(playerCanPlay) {
     var nextCard = playerHand.pop();
     cardsInPlay.push(nextCard);
     if(nextCard !== undefined) {
         cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
+    } else {
+      confirm("Oh no! The computer won the game! Click on the Ok button and reload the page to play again!");
     }
     playerCanPlay = false;
     // computer's turn
@@ -49,7 +50,7 @@ function playerPlay() {
     }
   }
 }
-    // computer plays cards
+// computer plays cards
 function computerPlay() {
   var delay = Math.floor((Math.random() * 1000) + 600);
   setTimeout(function() {
@@ -58,6 +59,8 @@ function computerPlay() {
     cardsInPlay.push(nextCard);
     if(nextCard !== undefined) {
       cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
+    } else {
+      confirm("Congratulations! You won the game! Click on the Ok button and reload the page to play again!");
     }
     if (nextCard.includes("_jack")) {
       jackPlaced();
@@ -71,6 +74,7 @@ function computerPlay() {
 
 // after random delay, computer will attempt to slap the jack
 function jackPlaced() {
+  deck.removeEventListener('click', playerPlay);
   //remove deck event listener so player cannot click
   var delay = Math.floor((Math.random() * 1000) + 600);
   // 600ms to 1600ms
@@ -82,6 +86,7 @@ function jackPlaced() {
     placeModal("The computer", playerHand.length, computerHand.length);
   }, delay);
   // add deck event listener so player can click again
+  deck.addEventListener('click', playerPlay);
 }
 
 cardInPlay.addEventListener('click', function(e) {
@@ -97,10 +102,6 @@ cardInPlay.addEventListener('click', function(e) {
   }
 });
 
-//end game once playerHand | | computerHand == 52
-if (gameHasEnded()) {
-
-}
 
 // shuffle and deal
 function shuffle() {
@@ -139,6 +140,14 @@ function shuffle() {
   deal(allPossibleCards);
 }
 
+//if (nextCard == undefined && computerHand.length == 0 && !gameHasEnded) {
+  //confirm("Congratulations! You won the game! Click on the Ok button and reload the page to play again!");
+  //}
+
+//if (nextCard == undefined && playerHand.length == 0 && !gameHasEnded) {
+  //confirm("Oh no! The computer won the game! Click on the Ok button and reload the page to play again!");
+//}
+
 function game() {
   shuffle();
   // loop
@@ -146,5 +155,6 @@ function game() {
   deck.addEventListener('click', playerPlay);
   playerCanPlay = true;
 } // game end
+
 
 game();
