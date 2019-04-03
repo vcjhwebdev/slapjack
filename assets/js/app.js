@@ -10,22 +10,20 @@ function gameHasEnded() {
   return playerHand.length == 52 || computerHand.length == 52;
 }
 
-function placeModal(content, playerCards, computerCards) {
+function placeModal(content) {
   var body = document.querySelector("body");
   var modal = document.createElement("div");
   modal.className = "modal";
-  var modalContent = `
-  <div class="modal-content">
-    <h1>${content} got the slap!</h1>
-    <p>Your cards: ${playerCards}</p>
-    <p>Computer cards: ${computerCards}</p>
-    <button class="button">Continue</button>
-  </div>`;
+  var modalContent = content;
   modal.innerHTML = modalContent;
   // add event listener to close modal
   var button = modal.querySelector("button");
   button.addEventListener("click", function() {
     body.removeChild(modal);
+    if(gameHasEnded()) {
+      game();
+      cardInPlay.src= "img/cards/2x/back-black.png";
+    }
   });
   // place modal on the page
   body.insertBefore(modal, body.children[0]);
@@ -39,7 +37,11 @@ function playerPlay() {
     if(nextCard !== undefined) {
         cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
     } else {
-      confirm("Oh no! The computer won the game! Click on the Ok button and reload the page to play again!");
+      placeModal(`
+      <div class="modal-content">
+        <h1>The computer won!</h1>
+        <button class="button" onclick="window.location.reload()">Restart Game</button>
+      </div>`);
     }
     playerCanPlay = false;
     // computer's turn
@@ -60,7 +62,11 @@ function computerPlay() {
     if(nextCard !== undefined) {
       cardInPlay.src = "img/cards/2x/" + nextCard + ".png";
     } else {
-      confirm("Congratulations! You won the game! Click on the Ok button and reload the page to play again!");
+      placeModal(`
+      <div class="modal-content">
+        <h1>You won!</h1>
+        <button class="button" onclick="window.location.reload()">Restart Game</button>
+      </div>`);
     }
     if (nextCard.includes("_jack")) {
       jackPlaced();
@@ -79,11 +85,16 @@ function jackPlaced() {
   var delay = Math.floor((Math.random() * 1000) + 600);
   // 600ms to 1600ms
   computerJackDelay = setTimeout(function() {
-    console.log('computer got it!');
     computerHand = cardsInPlay.concat(computerHand);
     cardsInPlay = [];
     cardInPlay.src = "img/cards/2x/back-black.png";
-    placeModal("The computer", playerHand.length, computerHand.length);
+    placeModal(`
+    <div class="modal-content">
+      <h1>The computer got the slap!</h1>
+      <p>Your cards: ${playerHand.length}</p>
+      <p>Computer cards: ${computerHand.length}</p>
+      <button class="button">Continue</button>
+    </div>`);
   }, delay);
   // add deck event listener so player can click again
   deck.addEventListener('click', playerPlay);
@@ -92,13 +103,17 @@ function jackPlaced() {
 cardInPlay.addEventListener('click', function(e) {
   var src = e.target.src;
   if (src.includes("_jack") && !gameHasEnded()) {
-    // testing purposes, remove later
-    console.log("player got it!");
     clearInterval(computerJackDelay);
     playerHand = cardsInPlay.concat(playerHand);
     cardsInPlay = [];
     cardInPlay.src = "img/cards/2x/back-black.png";
-    placeModal("You", playerHand.length, computerHand.length);
+    placeModal(`
+    <div class="modal-content">
+      <h1>You got the slap!</h1>
+      <p>Your cards: ${playerHand.length}</p>
+      <p>Computer cards: ${computerHand.length}</p>
+      <button class="button">Continue</button>
+    </div>`);
   }
 });
 
@@ -140,21 +155,13 @@ function shuffle() {
   deal(allPossibleCards);
 }
 
-//if (nextCard == undefined && computerHand.length == 0 && !gameHasEnded) {
-  //confirm("Congratulations! You won the game! Click on the Ok button and reload the page to play again!");
-  //}
-
-//if (nextCard == undefined && playerHand.length == 0 && !gameHasEnded) {
-  //confirm("Oh no! The computer won the game! Click on the Ok button and reload the page to play again!");
-//}
-
 function game() {
   shuffle();
   // loop
   // add click event listener so player can begin
   deck.addEventListener('click', playerPlay);
   playerCanPlay = true;
-} // game end
+}
 
 
 game();
