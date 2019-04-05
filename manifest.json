@@ -1,0 +1,41 @@
+{
+ "name": "Slapjack",
+ "short_name": "slap",
+ "icons": [
+ {
+ "src": "splashscreens/touch-icon-iphone.png",
+ "type": "image/png",
+ "sizes": "114x114"
+ },
+ {
+ "src": "splashscreens/touch-icon-ipad.png",
+ "type": "image/png",
+ "sizes": "152x152"
+ },
+ {
+ "src": "splashscreens/touch-icon-ipad-retina.png",
+ "type": "image/png",
+ "sizes": "167x167"
+ },
+ {
+ "src": "splashscreens/touch-icon-iphone-retina.png",
+ "type": "image/png",
+ "sizes": "180x180"
+ },
+ {
+ "src": "splashscreens/touch-icon.png",
+ "type": "image/png",
+ "sizes": "192x192"
+ },
+ {
+ "src": "splashscreens/splash-icon.png",
+ "type": "image/png",
+ "sizes": "512x512"
+ }
+ ],
+ "start_url": "index.html",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "scope": "index.html",
+ "theme_color": "#ffffff"
+}
