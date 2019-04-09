@@ -1,22 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-image: url(../../img/oopsies.jpg);
+  background-image: url('../../img/oopsies.jpg');
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-}
-
-* {
-  box-sizing: border-box;
-  border: 50px;
-  border-radius: 20px;
-  /* padding: 0 1em; */
+  font-family: monospace;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 #rules {
   background-color: #F1F1F1;
   border: 2px solid black;
-  height: 170px;
-
+  padding: 8px;
+  border-radius: 20px;
 }
 
 .modal {
@@ -48,6 +51,7 @@ body {
 
 .button {
   border: 1px solid black;
+  border-radius: 8px;
   color: black;
   text-decoration: none;
   display: inline-block;
@@ -58,21 +62,16 @@ body {
   margin: 0 auto;
   text-align: center;
 }
-#h1 {
-  height: 64px;
-  width: 275px;
-  font-size: 28px;
+h1 {
+  font-size: 64px;
   text-align: center;
   margin: 0 auto;
 }
 
-#h2 {
-  font-size: 15px;
+h2 {
+  font-size: 24px;
   text-align: center;
   text-decoration: underline;
-}
-body {
-  font-family: monospace;
 }
 
 header,
@@ -81,17 +80,31 @@ header,
     padding: 0 1em;
 }
 
-.deck {
-  cursor: pointer;
-    padding: 0 1em;
-    margin-top: 10px;
+/* flex container */
+#play-area {
+  display: flex;
+  justify-content: center;
 }
 
-.play {
-  cursor: pointer;
-    padding: 0 1em;
-    margin-top: 10px;
+/* flex items */
+#play-area div {
+  flex: 1 0 50%;
 }
+
+#play-area div:first-child {
+  text-align: right;
+}
+
+#play-area div:last-child {
+  text-align: left;
+}
+
+#play-area div img {
+  cursor: pointer;
+  width: 100%;
+  max-width: 338px;
+}
+
 /* =================================
 DEFAULT STYLES (NO MEDIA QUERY)
 Device width:

@@ -39,7 +39,7 @@ function playerPlay() {
     } else {
       placeModal(`
       <div class="modal-content">
-        <h1>The computer won!</h1>
+        <h2>The computer won!</h2>
         <button class="button" onclick="window.location.reload()">Restart Game</button>
       </div>`);
     }
@@ -64,7 +64,7 @@ function computerPlay() {
     } else {
       placeModal(`
       <div class="modal-content">
-        <h1>You won!</h1>
+        <h2>You won!</h2>
         <button class="button" onclick="window.location.reload()">Restart Game</button>
       </div>`);
     }
@@ -90,7 +90,7 @@ function jackPlaced() {
     cardInPlay.src = "img/cards/2x/back-black.png";
     placeModal(`
     <div class="modal-content">
-      <h1>The computer got the slap!</h1>
+      <h2>The computer got the slap!</h2>
       <p>Your cards: ${playerHand.length}</p>
       <p>Computer cards: ${computerHand.length}</p>
       <button class="button">Continue</button>
@@ -109,7 +109,7 @@ cardInPlay.addEventListener('click', function(e) {
     cardInPlay.src = "img/cards/2x/back-black.png";
     placeModal(`
     <div class="modal-content">
-      <h1>You got the slap!</h1>
+      <h2>You got the slap!</h2>
       <p>Your cards: ${playerHand.length}</p>
       <p>Computer cards: ${computerHand.length}</p>
       <button class="button">Continue</button>
