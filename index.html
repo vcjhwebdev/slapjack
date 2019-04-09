@@ -1,13 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Web App Title</title>
+    <!--LINK MANIFEST.JSON-->
+    <link rel="manifest" href="manifest.json">
+    <!--WEB APP-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000"/>
+    <!--iOS-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta id="status-bar-meta" name="apple-mobile-web-app-status-barstyle" content="default">
+    <meta name="apple-mobile-web-app-title" content="Slapjack">
+
+    <!--icons-->
+    <link rel="apple-touch-icon" href="touch-icons/touch-iconiphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icons/touchicon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icons/touchicon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icons/touchicon-ipad-retina.png">
+
+    <!--Splash Screens-->
+    <link href="splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <title>Slapjack</title>
   </head>
+
   <body>
+    <header>
+      <h1>Slapjack</h1>
+    </header>
+    <div id="rules">
+      <h2>Rules of the Game</h2>
+
+      <ul>
+        <li>Clicking on your deck will put a card into play. Your opponent will then put another card in play, and you will continue putting cards into play until a jack appears.</li>
+        <li>When a jack appears, you will have to click the cards in play before the computer can!</li>
+        <li>Slapping the jack before your opponent will transfer all the cards in play into your deck.</li>
+        <li>To win, you must exhaust all of your opponent's cards and transfer the whole deck to your hand by slapping jacks faster than your opponent.</li>
+        <li>To start, click on the deck!</li>
+      </ul>
+    </div>
+
+    <div id="play-area">
+      <!-- Card in play -->
+      <div>
+        <img class="deck" src="img/cards/2x/back-black.png"/>
+      </div>
+      <!-- Your deck -->
+      <div>
+        <img class="play" src="img/cards/2x/back-black.png"/>
+      </div>
+
+    </div>
 
     <!-- JavaScript File (loaded after the html has rendered) -->
     <script src="assets/js/app.js"></script>
+    <!--Service Worker JS linking-->
+        <script>
+    if ('serviceWorker' in navigator) {
+    	window.addEventListener('load', function() {
+      		navigator.serviceWorker.register('sw.js').then(function(registration) {
+      		// Registration was successful
+      		console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      	}, function(err) {
+      		// registration failed :(
+      		console.log('ServiceWorker registration failed: ', err);
+      	});
+      });
+    }
+    </script>
+
   </body>
 </html>
