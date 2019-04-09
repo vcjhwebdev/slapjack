@@ -13,6 +13,7 @@ A Progressive Web Application created in Atom using HTML, CSS, and JavaScript
 
 - A simple game of slapjack involving a player and a computer fighting over a deck of cards by slapping jacks faster than each other
 - Functions by using HTML, CSS, and JavaScript
+- Fun card game where you slap jacks faster than a robot
 
 ### Changelog
 
